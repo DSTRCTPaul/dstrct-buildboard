@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// One visitor reaction on one project block. Comments are public the moment they land;
+// Paul hides or deletes them from /admin. `hidden` keeps the row (so a deleted-by-mistake
+// reaction is recoverable) while taking it off the public deck.
+model Comment {
+  id        String   @id @default(cuid())
+  project   String // project slug from src/content/projects.ts
+  author    String
+  body      String
+  hidden    Boolean  @default(false)
+  ip        String? // truncated, for rate limiting and abuse only
+  createdAt DateTime @default(now())
+
+  @@index([project, hidden, createdAt])
+}
