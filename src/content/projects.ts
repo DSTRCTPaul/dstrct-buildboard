@@ -14,6 +14,7 @@ export interface Project {
   family: string;
   accent: { cyan: string; blue: string };
   url?: string;
+  links?: { label: string; url?: string; access: "open" | "login" | "password" | "closed"; note?: string }[];
   stats: { n: string; l: string }[];
   idea: { title: string; lead: string };
   why: { title: string; lead: string; quote?: string };
@@ -40,6 +41,9 @@ export const PROJECTS: Project[] = [
     statusNote: "core running on Render, brains connected",
     family: "The OS",
     accent: { cyan: "#34E0A1", blue: "#176999" },
+    links: [
+      { label: "dstrct-os.onrender.com", url: "https://dstrct-os.onrender.com", access: "open", note: "the running OS" },
+    ],
     stats: [
       { n: "4", l: "connected brains" },
       { n: "~28", l: "brains in the vision" },
@@ -100,6 +104,9 @@ export const PROJECTS: Project[] = [
     statusNote: "on Render since July 2026",
     family: "Brains",
     accent: { cyan: "#C084FC", blue: "#EC4899" },
+    links: [
+      { label: "runs in Discord", access: "closed", note: "no public URL, it lives in the team's creative channel" },
+    ],
     stats: [
       { n: "236", l: "tests green" },
       { n: "9", l: "cognition phases" },
@@ -158,6 +165,9 @@ export const PROJECTS: Project[] = [
     statusNote: "on Render, value spine closed",
     family: "Brains",
     accent: { cyan: "#22D3EE", blue: "#2563EB" },
+    links: [
+      { label: "runs in Discord", access: "closed", note: "ask and I will run a deck for your own company" },
+    ],
     stats: [
       { n: "858", l: "tests green" },
       { n: "5", l: "layers of market research" },
@@ -215,6 +225,9 @@ export const PROJECTS: Project[] = [
     statusNote: "in the OS, auto coupling switched on",
     family: "Brains",
     accent: { cyan: "#34E0A1", blue: "#0E7490" },
+    links: [
+      { label: "inside the OS", access: "login", note: "an endpoint on dstrct-os, not a page of its own" },
+    ],
     stats: [
       { n: "4th", l: "connected brain" },
       { n: "0.85", l: "confidence on real data" },
@@ -270,6 +283,9 @@ export const PROJECTS: Project[] = [
     statusNote: "phases 1 and 2 live, Sora partly on a branch",
     family: "The OS",
     accent: { cyan: "#8B5CF6", blue: "#2563EB" },
+    links: [
+      { label: "inside the OS", access: "login", note: "endpoints, no interface yet" },
+    ],
     stats: [
       { n: "2", l: "phases live" },
       { n: "0", l: "invented answers" },
@@ -322,6 +338,9 @@ export const PROJECTS: Project[] = [
     statusNote: "on Render since July 2026",
     family: "Own products",
     accent: { cyan: "#60A5FA", blue: "#1E40AF" },
+    links: [
+      { label: "sentinel-cp.onrender.com", url: "https://sentinel-cp.onrender.com", access: "login", note: "the control room, ask for a demo account" },
+    ],
     stats: [
       { n: "24", l: "tests green" },
       { n: "3", l: "modules" },
@@ -378,6 +397,9 @@ export const PROJECTS: Project[] = [
     statusNote: "three slices done, waiting on external accounts",
     family: "Own products",
     accent: { cyan: "#F472B6", blue: "#9333EA" },
+    links: [
+      { label: "not deployed yet", access: "closed", note: "waiting on the payment and storage accounts" },
+    ],
     stats: [
       { n: "124", l: "tests green" },
       { n: "3", l: "slices done" },
@@ -437,6 +459,9 @@ export const PROJECTS: Project[] = [
     family: "Own products",
     accent: { cyan: "#34E0A1", blue: "#176999" },
     url: "https://dstrct-crm-r2y3.onrender.com",
+    links: [
+      { label: "dstrct-crm-r2y3.onrender.com", url: "https://dstrct-crm-r2y3.onrender.com", access: "login", note: "internal tool, ask for an account" },
+    ],
     stats: [
       { n: "4", l: "roles" },
       { n: "6", l: "pipeline stages" },
@@ -490,6 +515,9 @@ export const PROJECTS: Project[] = [
     family: "Own products",
     accent: { cyan: "#FDE047", blue: "#CA8A04" },
     url: "https://dstrct-tarieven.onrender.com",
+    links: [
+      { label: "dstrct-tarieven.onrender.com", url: "https://dstrct-tarieven.onrender.com", access: "password", note: "behind a password on purpose, ask if you want to see it" },
+    ],
     stats: [
       { n: "700+", l: "data points" },
       { n: "320+", l: "agencies compared" },
@@ -541,6 +569,9 @@ export const PROJECTS: Project[] = [
     family: "Own products",
     accent: { cyan: "#22D3EE", blue: "#8B5CF6" },
     url: "https://dstrct-os-demo.vercel.app",
+    links: [
+      { label: "dstrct-os-demo.vercel.app", url: "https://dstrct-os-demo.vercel.app", access: "open" },
+    ],
     stats: [
       { n: "5", l: "pages" },
       { n: "3", l: "rejected attempts" },
@@ -592,6 +623,9 @@ export const PROJECTS: Project[] = [
     statusNote: "spec approved, the writing workbench is built",
     family: "Exploration",
     accent: { cyan: "#F5C242", blue: "#4338CA" },
+    links: [
+      { label: "nothing to open yet", access: "closed", note: "the workbench runs locally, the companion is not built" },
+    ],
     stats: [
       { n: "23", l: "sources verified" },
       { n: "1", l: "learning profile for life" },
@@ -650,6 +684,9 @@ export const PROJECTS: Project[] = [
     statusNote: "on Render, domain switch still open",
     family: "Client work",
     accent: { cyan: "#FF8A65", blue: "#E85A4F" },
+    links: [
+      { label: "cmp-storefront.onrender.com", url: "https://cmp-storefront.onrender.com", access: "open", note: "the rebuilt shop" },
+    ],
     stats: [
       { n: "11,400", l: "products migrated" },
       { n: "642", l: "records cleaned" },
@@ -706,6 +743,9 @@ export const PROJECTS: Project[] = [
     family: "Client work",
     accent: { cyan: "#A78BFA", blue: "#7C5CFF" },
     url: "https://platinum-management-agency.vercel.app",
+    links: [
+      { label: "platinum-management-agency.vercel.app", url: "https://platinum-management-agency.vercel.app/en", access: "open" },
+    ],
     stats: [
       { n: "64", l: "pages" },
       { n: "52", l: "defects fixed" },
@@ -759,6 +799,9 @@ export const PROJECTS: Project[] = [
     statusNote: "worked live, GPU deliberately off",
     family: "Exploration",
     accent: { cyan: "#2DD4BF", blue: "#0EA5E9" },
+    links: [
+      { label: "runs in a Discord voice channel", access: "closed", note: "the GPU is off to avoid idle billing" },
+    ],
     stats: [
       { n: "972", l: "tests green" },
       { n: "~1s", l: "achievable start" },

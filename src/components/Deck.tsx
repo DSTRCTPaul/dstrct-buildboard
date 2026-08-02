@@ -116,6 +116,23 @@ export function Deck({
         <div className="statusline reveal d3">
           <span className={`dot ${p.status}`} /> {STATUS_LABEL[p.status]} · {p.statusNote}
         </div>
+        {p.links && p.links.length > 0 && (
+          <div className="linkrow reveal d3">
+            {p.links.map((l) =>
+              l.url ? (
+                <a key={l.label} className={`plink ${l.access}`} href={l.url} target="_blank" rel="noreferrer noopener">
+                  <span className="acc">{l.access === "open" ? "open" : l.access === "login" ? "login" : "password"}</span>
+                  {l.label} ↗
+                </a>
+              ) : (
+                <span key={l.label} className={`plink ${l.access}`}>
+                  <span className="acc">{l.access === "closed" ? "not open" : l.access}</span>
+                  {l.label}
+                </span>
+              )
+            )}
+          </div>
+        )}
         <div className="scrollhint">scroll ↓ or use →</div>
       </section>
 
@@ -307,11 +324,22 @@ export function Deck({
           <Link href="/">all projects</Link>
         </div>
 
-        {p.url && (
-          <div className="decknav">
-            <a href={p.url} target="_blank" rel="noreferrer noopener">
-              see it live ↗
-            </a>
+        {p.links && p.links.length > 0 && (
+          <div className="linkrow" style={{ marginTop: "1.4rem" }}>
+            {p.links.map((l) =>
+              l.url ? (
+                <a key={l.label} className={`plink ${l.access}`} href={l.url} target="_blank" rel="noreferrer noopener">
+                  <span className="acc">{l.access === "open" ? "open" : l.access === "login" ? "login" : "password"}</span>
+                  {l.label} ↗{l.note ? <em>{l.note}</em> : null}
+                </a>
+              ) : (
+                <span key={l.label} className={`plink ${l.access}`}>
+                  <span className="acc">not open</span>
+                  {l.label}
+                  {l.note ? <em>{l.note}</em> : null}
+                </span>
+              )
+            )}
           </div>
         )}
       </section>
