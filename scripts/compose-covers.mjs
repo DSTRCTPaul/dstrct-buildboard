@@ -10,11 +10,11 @@ const OUT = process.env.OUT;
 const b64 = (f) => "data:image/jpeg;base64," + readFileSync(`${SHOTS}/${f}`).toString("base64");
 
 const ART = {
-  "dstrct-os": "art-prism.jpg", ariel: "art-prism.jpg", midas: "art-prism.jpg",
-  "finance-brain": "art-prism.jpg", "brain-spine": "art-prism.jpg",
-  sentinel: "art-mesh.jpg", koekkoekk: "art-liquid.jpg", "dstrct-crm": "art-mesh.jpg",
-  rates: "art-mesh.jpg", "os-demo": "art-prism.jpg", fionie: "art-beam.jpg",
-  "creatief-met-plezier": "art-liquid.jpg", platinum: "art-liquid.jpg", maya: "art-beam.jpg",
+  "dstrct-os": "art-prism.jpg", ariel: "art-prism-3.jpg", midas: "art-prism-2.jpg",
+  "finance-brain": "art-prism-4.jpg", "brain-spine": "art-prism-2.jpg",
+  sentinel: "art-prism-4.jpg", koekkoekk: "art-prism-3.jpg", "dstrct-crm": "art-prism.jpg",
+  rates: "art-prism-4.jpg", "os-demo": "art-prism-2.jpg", fionie: "art-prism-3.jpg",
+  "creatief-met-plezier": "art-prism.jpg", platinum: "art-prism-2.jpg", maya: "art-prism-4.jpg",
 };
 
 const JOBS = [

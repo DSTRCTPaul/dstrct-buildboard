@@ -11,7 +11,7 @@ const html = `<!doctype html><html><head><meta charset="utf-8"><style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{width:1400px;height:880px;overflow:hidden;background:#070a12}
 .stage{position:relative;width:1400px;height:880px;overflow:hidden}
-.art{position:absolute;inset:0;background-image:url(${b64("art-mesh.jpg")});background-size:cover;background-position:center;opacity:1}
+.art{position:absolute;inset:0;background-image:url(${b64("art-prism-2.jpg")});background-size:cover;background-position:center;opacity:1}
 .tint{position:absolute;inset:0;mix-blend-mode:screen;opacity:.5;
  background:radial-gradient(70% 70% at 10% 6%, #176999, transparent 62%),radial-gradient(65% 65% at 92% 94%, #34e0a1, transparent 60%)}
 .glow{position:absolute;border-radius:50%;filter:blur(130px)}

@@ -153,12 +153,20 @@ export function Deck({
       {/* 04 waarom */}
       <section className="slide">
         <div className="eyebrow blue">{num()} · why</div>
-        <h2 className="reveal">
-          <Rich text={p.why.title} as="grad" />
-        </h2>
-        <p className="lead reveal d1">
-          <Rich text={p.why.lead} />
-        </p>
+        <div className="whygrid">
+          <div>
+            <h2 className="reveal">
+              <Rich text={p.why.title} as="grad" />
+            </h2>
+            <p className="lead reveal d1">
+              <Rich text={p.why.lead} />
+            </p>
+          </div>
+          <figure className="whyart reveal d2">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={`/shots/why-${p.slug}.jpg`} alt="" loading="lazy" width={1200} height={1200} />
+          </figure>
+        </div>
       </section>
 
       {/* 05 quote */}

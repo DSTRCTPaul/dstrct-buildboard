@@ -1047,3 +1047,35 @@
   cursor: pointer;
   padding: 0.1rem 0.3rem;
 }
+
+/* The why slide carries its own image: generated art in the project's colours,
+   abstract on purpose. Never a picture of an interface. */
+.whygrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
+}
+.whyart {
+  margin: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--cardline);
+  line-height: 0;
+  box-shadow: 0 40px 90px -50px rgba(0, 0, 0, 0.9);
+}
+.whyart img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 58vh;
+  object-fit: cover;
+}
+@media (max-width: 860px) {
+  .whygrid {
+    grid-template-columns: 1fr;
+  }
+  .whyart img {
+    max-height: 30vh;
+  }
+}
