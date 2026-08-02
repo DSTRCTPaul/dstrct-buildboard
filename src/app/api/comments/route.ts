@@ -11,7 +11,7 @@ export async function POST(req: Request) {
   try {
     payload = await req.json();
   } catch {
-    return NextResponse.json({ error: "Ongeldig verzoek." }, { status: 400 });
+    return NextResponse.json({ error: "Invalid request." }, { status: 400 });
   }
 
   const { project, author, body, website } = (payload ?? {}) as Record<string, unknown>;
@@ -22,21 +22,21 @@ export async function POST(req: Request) {
   }
 
   if (typeof project !== "string" || !getProject(project)) {
-    return NextResponse.json({ error: "Onbekend project." }, { status: 400 });
+    return NextResponse.json({ error: "Unknown project." }, { status: 400 });
   }
   if (typeof author !== "string" || typeof body !== "string") {
-    return NextResponse.json({ error: "Naam en reactie zijn verplicht." }, { status: 400 });
+    return NextResponse.json({ error: "Name and reply are required." }, { status: 400 });
   }
 
   const cleanAuthor = author.trim().slice(0, MAX_AUTHOR);
   const cleanBody = body.trim().slice(0, MAX_BODY);
   if (!cleanAuthor || !cleanBody) {
-    return NextResponse.json({ error: "Naam en reactie zijn verplicht." }, { status: 400 });
+    return NextResponse.json({ error: "Name and reply are required." }, { status: 400 });
   }
 
   const key = clientKey(req.headers);
   if (tooManyFrom(key, Date.now())) {
-    return NextResponse.json({ error: "Even rustig aan. Probeer het over een paar minuten." }, { status: 429 });
+    return NextResponse.json({ error: "Easy there. Try again in a few minutes." }, { status: 429 });
   }
 
   try {
@@ -53,6 +53,6 @@ export async function POST(req: Request) {
       },
     });
   } catch {
-    return NextResponse.json({ error: "Opslaan lukte niet. Probeer het zo nog eens." }, { status: 500 });
+    return NextResponse.json({ error: "Saving failed. Try again in a moment." }, { status: 500 });
   }
 }

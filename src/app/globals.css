@@ -374,13 +374,13 @@ h1 {
   background: var(--accent-2);
   box-shadow: 0 0 8px var(--accent-2);
 }
-.dot.gebouwd {
+.dot.built {
   background: #60a5fa;
 }
-.dot.aanbouw {
+.dot.building {
   background: var(--warn);
 }
-.dot.visie {
+.dot.exploring {
   background: var(--ink-3);
 }
 

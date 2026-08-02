@@ -6,7 +6,7 @@ import { isAdmin } from "@/lib/auth";
 import { prisma } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Beheer · DSTRCT Build Board", robots: { index: false, follow: false } };
+export const metadata = { title: "Admin · DSTRCT Build Board", robots: { index: false, follow: false } };
 
 export default async function AdminPage({ searchParams }: { searchParams: Promise<{ e?: string }> }) {
   const { e } = await searchParams;
@@ -21,30 +21,30 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
         <header className="topbar" style={{ padding: 0 }}>
           <Link href="/" className="wordmark">
             <Prism />
-            DSTRCT · Beheer
+            DSTRCT · Admin
           </Link>
         </header>
 
         {!ok ? (
           <div className="panel" style={{ marginTop: "2.5rem", maxWidth: 420 }}>
-            <div className="eyebrow">afgeschermd</div>
+            <div className="eyebrow">restricted</div>
             <p style={{ color: "var(--ink-2)", lineHeight: 1.6, fontSize: "0.95rem" }}>
-              Log in om reacties te verbergen of te verwijderen.
+              Log in to hide or delete replies.
             </p>
             <form method="post" action="/api/admin/login">
               <label className="field">
-                <span>wachtwoord</span>
+                <span>password</span>
                 <input type="password" name="password" autoFocus required />
               </label>
               <div style={{ marginTop: "1.2rem" }}>
                 <button className="btn" type="submit">
-                  inloggen
+                  log in
                 </button>
               </div>
             </form>
             {e && (
               <p style={{ color: "#fb7185", marginTop: "1rem", fontSize: "0.85rem" }}>
-                {e === "slow" ? "Te veel pogingen. Wacht even." : "Dat wachtwoord klopt niet."}
+                {e === "slow" ? "Too many attempts. Wait a moment." : "That password is not right."}
               </p>
             )}
           </div>
@@ -78,7 +78,7 @@ async function Panel() {
     return (
       <div className="panel" style={{ marginTop: "2.5rem" }}>
         <div className="eyebrow">database</div>
-        <p style={{ color: "var(--ink-2)" }}>Geen verbinding met de database.</p>
+        <p style={{ color: "var(--ink-2)" }}>No connection to the database.</p>
       </div>
     );
   }

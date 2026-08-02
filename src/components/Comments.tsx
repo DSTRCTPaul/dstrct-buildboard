@@ -10,7 +10,7 @@ export interface PublicComment {
 }
 
 // Fixed locale and time zone so the server render and the client render agree.
-const FMT = new Intl.DateTimeFormat("nl-NL", {
+const FMT = new Intl.DateTimeFormat("en-GB", {
   day: "numeric",
   month: "short",
   hour: "2-digit",
@@ -42,15 +42,15 @@ export function Comments({ slug, initial }: { slug: string; initial: PublicComme
       });
       const data = await res.json();
       if (!res.ok) {
-        setMsg({ text: data.error ?? "Dat lukte niet.", err: true });
+        setMsg({ text: data.error ?? "That did not go through.", err: true });
       } else {
         if (data.comment) setList((cur) => [data.comment, ...cur]);
         setAuthor("");
         setBody("");
-        setMsg({ text: "Staat erbij. Dank je.", err: false });
+        setMsg({ text: "Posted. Thank you.", err: false });
       }
     } catch {
-      setMsg({ text: "Geen verbinding. Probeer het zo nog eens.", err: true });
+      setMsg({ text: "No connection. Try again in a moment.", err: true });
     } finally {
       setSending(false);
     }
@@ -60,24 +60,24 @@ export function Comments({ slug, initial }: { slug: string; initial: PublicComme
     <div className="commentwrap reveal d2">
       <form className="cform" onSubmit={submit}>
         <label>
-          <span>je naam</span>
+          <span>your name</span>
           <input
             value={author}
             onChange={(e) => setAuthor(e.target.value)}
             maxLength={MAX_AUTHOR}
             required
-            placeholder="wie ben je"
+            placeholder="who are you"
           />
         </label>
         <label>
-          <span>je reactie</span>
+          <span>your reply</span>
           <textarea
             value={body}
             onChange={(e) => setBody(e.target.value)}
             maxLength={MAX_BODY}
             required
             rows={5}
-            placeholder="wat denk je hiervan"
+            placeholder="what do you think of this"
           />
         </label>
         <label className="hp" aria-hidden="true">
@@ -85,7 +85,7 @@ export function Comments({ slug, initial }: { slug: string; initial: PublicComme
           <input value={website} onChange={(e) => setWebsite(e.target.value)} tabIndex={-1} autoComplete="off" />
         </label>
         <button className="send" type="submit" disabled={sending || !author.trim() || !body.trim()}>
-          {sending ? "bezig" : "plaatsen"}
+          {sending ? "sending" : "post"}
         </button>
         {msg && <div className={`msg${msg.err ? " err" : ""}`}>{msg.text}</div>}
       </form>
@@ -93,9 +93,9 @@ export function Comments({ slug, initial }: { slug: string; initial: PublicComme
       <div>
         {list.length === 0 ? (
           <div className="cempty">
-            nog geen reacties
+            no replies yet
             <br />
-            wees de eerste
+            be the first
           </div>
         ) : (
           <div className="clist">

@@ -12,7 +12,7 @@ export interface AdminComment {
   createdAt: string;
 }
 
-const FMT = new Intl.DateTimeFormat("nl-NL", {
+const FMT = new Intl.DateTimeFormat("en-GB", {
   day: "numeric",
   month: "short",
   hour: "2-digit",
@@ -36,7 +36,7 @@ export function AdminList({ initial }: { initial: AdminComment[] }) {
   }
 
   async function remove(c: AdminComment) {
-    if (!confirm(`Reactie van ${c.author} definitief verwijderen?`)) return;
+    if (!confirm(`Permanently delete the reply from ${c.author}?`)) return;
     setBusy(c.id);
     const res = await fetch("/api/admin/comments", {
       method: "DELETE",
@@ -58,20 +58,20 @@ export function AdminList({ initial }: { initial: AdminComment[] }) {
     <div style={{ marginTop: "2.5rem" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "1rem" }}>
         <div>
-          <div className="eyebrow">reacties</div>
+          <div className="eyebrow">replies</div>
           <div style={{ fontSize: "1.6rem", fontWeight: 800, letterSpacing: "-0.02em" }}>
-            {visible} zichtbaar · {rows.length - visible} verborgen
+            {visible} visible · {rows.length - visible} hidden
           </div>
         </div>
         <button className="btn ghost" onClick={logout}>
-          uitloggen
+          log out
         </button>
       </div>
 
       <div className="panel" style={{ marginTop: "1.6rem" }}>
         {rows.length === 0 ? (
           <p style={{ color: "var(--ink-3)", fontFamily: "var(--mono)", fontSize: "0.8rem" }}>
-            Nog geen reacties binnengekomen.
+            No replies have come in yet.
           </p>
         ) : (
           rows.map((c) => (
@@ -79,16 +79,16 @@ export function AdminList({ initial }: { initial: AdminComment[] }) {
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div className="meta">
                   {c.projectName} · {c.author} · {FMT.format(new Date(c.createdAt))}
-                  {c.hidden ? " · verborgen" : ""}
+                  {c.hidden ? " · hidden" : ""}
                 </div>
                 <div className="body">{c.body}</div>
               </div>
               <div className="acts">
                 <button className="btn ghost" disabled={busy === c.id} onClick={() => toggle(c)}>
-                  {c.hidden ? "tonen" : "verbergen"}
+                  {c.hidden ? "show" : "hide"}
                 </button>
                 <button className="btn ghost" disabled={busy === c.id} onClick={() => remove(c)}>
-                  wissen
+                  delete
                 </button>
               </div>
             </div>

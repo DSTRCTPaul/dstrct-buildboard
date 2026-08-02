@@ -81,7 +81,7 @@ export function Deck({
 
       <div className="deck-progress" style={{ width: `${((index + 1) / total) * 100}%` }} />
       <Link href="/" className="deck-back">
-        ← alle projecten
+        ← all projects
       </Link>
       <div className="deck-dots">
         {Array.from({ length: total }, (_, i) => (
@@ -107,15 +107,15 @@ export function Deck({
         <div className="statusline reveal d3">
           <span className={`dot ${p.status}`} /> {STATUS_LABEL[p.status]} · {p.statusNote}
         </div>
-        <div className="scrollhint">scroll ↓ of gebruik →</div>
+        <div className="scrollhint">scroll ↓ or use →</div>
       </section>
 
       {/* 02 stats */}
       {p.stats.length > 0 && (
         <section className="slide">
-          <div className="eyebrow">in cijfers</div>
+          <div className="eyebrow">by the numbers</div>
           <h2 className="reveal">
-            Waar dit <span className="g">staat</span>
+            Where this <span className="g">stands</span>
           </h2>
           <div className="stats reveal d1">
             {p.stats.map((s, i) => (
@@ -132,7 +132,7 @@ export function Deck({
 
       {/* 03 het idee */}
       <section className="slide">
-        <div className="eyebrow">01 · het idee</div>
+        <div className="eyebrow">01 · the idea</div>
         <h2 className="reveal">
           <Rich text={p.idea.title} as="grad" />
         </h2>
@@ -143,7 +143,7 @@ export function Deck({
 
       {/* 04 waarom */}
       <section className="slide">
-        <div className="eyebrow blue">02 · waarom</div>
+        <div className="eyebrow blue">02 · why</div>
         <h2 className="reveal">
           <Rich text={p.why.title} as="grad" />
         </h2>
@@ -155,7 +155,7 @@ export function Deck({
       {/* 05 quote */}
       {p.why.quote && (
         <section className="slide quote">
-          <div className="eyebrow blue">in mijn woorden</div>
+          <div className="eyebrow blue">in my own words</div>
           <div className="mark reveal">&quot;</div>
           <h2 className="reveal d1">
             <span className="g">{p.why.quote}</span>
@@ -166,7 +166,7 @@ export function Deck({
 
       {/* 06 de stack */}
       <section className="slide tall">
-        <div className="eyebrow">03 · de stack</div>
+        <div className="eyebrow">03 · the stack</div>
         <h2 className="reveal">
           <Rich text={p.stack.title} as="grad" />
         </h2>
@@ -187,7 +187,7 @@ export function Deck({
 
       {/* 07 hoe ik het bouwde */}
       <section className="slide tall">
-        <div className="eyebrow">04 · hoe ik het bouwde</div>
+        <div className="eyebrow">04 · how I built it</div>
         <h2 className="reveal">
           <Rich text={p.build.title} as="grad" />
         </h2>
@@ -216,7 +216,7 @@ export function Deck({
 
       {/* 08 wat er nog staat */}
       <section className="slide tall">
-        <div className="eyebrow blue">05 · wat er nog staat</div>
+        <div className="eyebrow blue">05 · what is still standing</div>
         <h2 className="reveal">
           <Rich text={p.open.title} as="grad" />
         </h2>
@@ -245,12 +245,12 @@ export function Deck({
 
       {/* 09 feedback */}
       <section className="slide tall">
-        <div className="eyebrow">06 · jouw feedback</div>
+        <div className="eyebrow">06 · your feedback</div>
         <h2 className="reveal">
-          Wat vind jij van <span className="g">{p.name}</span>?
+          What do you make of <span className="g">{p.name}</span>?
         </h2>
         <p className="lead reveal d1">
-          Zeg het gewoon. Kritiek is nuttiger dan een compliment: wat mis je, wat zou jij anders doen, wat snap je niet?
+          Just say it. Criticism is more useful than a compliment: what is missing, what would you do differently, what does not make sense?
         </p>
 
         <Comments slug={p.slug} initial={comments} />
@@ -261,13 +261,13 @@ export function Deck({
               {n.name} →
             </Link>
           ))}
-          <Link href="/">alle projecten</Link>
+          <Link href="/">all projects</Link>
         </div>
 
         {p.url && (
           <div className="decknav">
             <a href={p.url} target="_blank" rel="noreferrer noopener">
-              bekijk het live ↗
+              see it live ↗
             </a>
           </div>
         )}

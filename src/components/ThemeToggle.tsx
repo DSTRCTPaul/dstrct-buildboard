@@ -21,7 +21,7 @@ export function ThemeToggle() {
   }
 
   return (
-    <button className="iconbtn" onClick={flip} aria-label={theme === "dark" ? "Licht thema" : "Donker thema"}>
+    <button className="iconbtn" onClick={flip} aria-label={theme === "dark" ? "Light theme" : "Dark theme"}>
       {theme === "dark" ? (
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
           <circle cx="12" cy="12" r="4.2" />
