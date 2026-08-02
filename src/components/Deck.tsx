@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { CountUp } from "@/components/CountUp";
 import { Rich } from "@/components/Rich";
 import { Comments, type PublicComment } from "@/components/Comments";
+import { Preview, hasPreview } from "@/components/Preview";
 import { STATUS_LABEL, type Project } from "@/content/projects";
 
 export function Deck({
@@ -164,9 +165,20 @@ export function Deck({
         </section>
       )}
 
-      {/* 06 de stack */}
+      {/* 06 in action */}
+      {hasPreview(p.slug) && (
+        <section className="slide tall">
+          <div className="eyebrow">03 · in action</div>
+          <h2 className="reveal">
+            See it <span className="g">work</span>
+          </h2>
+          <Preview slug={p.slug} />
+        </section>
+      )}
+
+      {/* 07 de stack */}
       <section className="slide tall">
-        <div className="eyebrow">03 · the stack</div>
+        <div className="eyebrow">04 · the stack</div>
         <h2 className="reveal">
           <Rich text={p.stack.title} as="grad" />
         </h2>
@@ -187,7 +199,7 @@ export function Deck({
 
       {/* 07 hoe ik het bouwde */}
       <section className="slide tall">
-        <div className="eyebrow">04 · how I built it</div>
+        <div className="eyebrow">05 · how I built it</div>
         <h2 className="reveal">
           <Rich text={p.build.title} as="grad" />
         </h2>
@@ -216,7 +228,7 @@ export function Deck({
 
       {/* 08 wat er nog staat */}
       <section className="slide tall">
-        <div className="eyebrow blue">05 · what is still standing</div>
+        <div className="eyebrow blue">06 · what is still standing</div>
         <h2 className="reveal">
           <Rich text={p.open.title} as="grad" />
         </h2>
@@ -245,7 +257,7 @@ export function Deck({
 
       {/* 09 feedback */}
       <section className="slide tall">
-        <div className="eyebrow">06 · your feedback</div>
+        <div className="eyebrow">07 · your feedback</div>
         <h2 className="reveal">
           What do you make of <span className="g">{p.name}</span>?
         </h2>

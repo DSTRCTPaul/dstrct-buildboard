@@ -601,3 +601,294 @@
     animation: none;
   }
 }
+
+/* ------------------------------------------------------------------ previews
+   "In action" slide: a real screenshot for the sites you can visit, and a crafted
+   mini interface for everything that lives in Discord, on a phone or behind a login.
+   All hand built, no external assets, all in the project's own accent. */
+
+.pv {
+  margin-top: 1.8rem;
+  border: 1px solid var(--cardline);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(6px);
+  overflow: hidden;
+}
+.pv-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--cardline);
+  font-family: var(--d-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+.pv-bar i {
+  width: 0.48rem;
+  height: 0.48rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  flex: none;
+}
+.pv-bar i:first-child {
+  background: var(--cyan);
+  opacity: 0.75;
+}
+.pv-bar span {
+  margin-left: 0.5rem;
+}
+.pv-body {
+  padding: 1.1rem;
+}
+.pv-shot {
+  display: block;
+  width: 100%;
+  max-height: 50vh;
+  object-fit: cover;
+  object-position: top center;
+}
+.pv-cap {
+  font-family: var(--d-mono);
+  font-size: 0.74rem;
+  line-height: 1.75;
+  letter-spacing: 0.03em;
+  color: var(--faint);
+  margin-top: 1rem;
+  max-width: 72ch;
+}
+.pv-cap b {
+  color: var(--soft);
+  font-weight: 500;
+}
+
+.pv-chat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+.pv-msg {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+.pv-av {
+  width: 1.95rem;
+  height: 1.95rem;
+  border-radius: 50%;
+  flex: none;
+  display: grid;
+  place-items: center;
+  font-size: 0.6rem;
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--soft);
+}
+.pv-av.bot {
+  background: linear-gradient(135deg, var(--cyan), var(--blue));
+  color: #04160f;
+}
+.pv-who {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--d-ink);
+  margin-bottom: 0.25rem;
+}
+.pv-who em {
+  font-family: var(--d-mono);
+  font-size: 0.58rem;
+  font-style: normal;
+  color: var(--faint);
+  margin-left: 0.55rem;
+  letter-spacing: 0.12em;
+}
+.pv-txt {
+  font-size: 0.9rem;
+  color: var(--soft);
+  line-height: 1.55;
+}
+
+.pv-card {
+  border: 1px solid var(--cardline);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+}
+.pv-card + .pv-card {
+  margin-top: 0.7rem;
+}
+.pv-h {
+  font-family: var(--d-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 0.65rem;
+}
+.pv-kv {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.4rem 0;
+  font-size: 0.87rem;
+  color: var(--soft);
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.07);
+}
+.pv-kv:last-child {
+  border-bottom: none;
+}
+.pv-kv b {
+  color: var(--d-ink);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.pv-kv .mono {
+  font-family: var(--d-mono);
+  font-size: 0.76rem;
+}
+.pv-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--d-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.24rem 0.6rem;
+  border-radius: 100px;
+  border: 1px solid var(--cardline);
+  color: var(--soft);
+  white-space: nowrap;
+}
+.pv-tag.ok {
+  color: var(--cyan);
+  border-color: color-mix(in srgb, var(--cyan) 45%, transparent);
+}
+.pv-tag.wait {
+  color: #f0a35e;
+  border-color: rgba(240, 163, 94, 0.4);
+}
+.pv-tag.no {
+  color: #fb7185;
+  border-color: rgba(251, 113, 133, 0.4);
+}
+.pv-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+  align-items: start;
+}
+@media (max-width: 780px) {
+  .pv-2 {
+    grid-template-columns: 1fr;
+  }
+}
+.pv-big {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--d-ink);
+}
+.pv-big.acc {
+  color: var(--cyan);
+}
+.pv-blur {
+  filter: blur(6px);
+  opacity: 0.5;
+  user-select: none;
+}
+.pv-wave {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 2.4rem;
+}
+.pv-wave i {
+  width: 3px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, var(--cyan), var(--blue));
+}
+.pv-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.pv-fitem {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--cardline);
+  border-radius: 10px;
+  font-size: 0.85rem;
+  color: var(--soft);
+}
+.pv-fitem .sig {
+  width: 0.4rem;
+  height: 1.9rem;
+  border-radius: 3px;
+  flex: none;
+}
+.pv-fitem .when {
+  font-family: var(--d-mono);
+  font-size: 0.66rem;
+  color: var(--faint);
+  white-space: nowrap;
+}
+.pv-note {
+  border-left: 2px solid var(--cyan);
+  padding-left: 0.85rem;
+}
+.pv-arrow {
+  display: grid;
+  place-items: center;
+  font-family: var(--d-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--faint);
+  padding: 0.4rem 0;
+}
+.pv-slidemini {
+  border: 1px solid var(--cardline);
+  border-radius: 10px;
+  padding: 1rem;
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.05), transparent);
+}
+.pv-slidemini .eb {
+  font-family: var(--d-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+.pv-slidemini .tt {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-top: 0.4rem;
+  color: var(--d-ink);
+  line-height: 1.15;
+}
+.pv-slidemini .nm {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-top: 0.5rem;
+  background: linear-gradient(100deg, var(--cyan), var(--blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Inside the two-column preview the cards are grid siblings, so the stacking margin
+   would push the right column down by 0.7rem. */
+.pv-2 .pv-card + .pv-card {
+  margin-top: 0;
+}
