@@ -40,7 +40,7 @@ function Card({ project: p, count }: { project: Project; count: number }) {
       style={{ ["--pa" as string]: p.accent.cyan, ["--pb" as string]: p.accent.blue }}
     >
       {cover && (
-        <div className={`cardshot${cover.startsWith("panel--") ? " panel" : ""}`}>
+        <div className="cardshot">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={`/shots/${cover}`} alt="" loading="lazy" width={640} height={360} />
         </div>

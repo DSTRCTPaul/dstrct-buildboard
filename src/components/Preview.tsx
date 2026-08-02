@@ -81,8 +81,8 @@ export const SHOTS: Record<string, Shot[]> = {
     { file: "koekkoekk--shop.jpg", label: "the shop", note: "Items from verified sellers, priced in whole cents, media always behind signed URLs." },
     { file: "koekkoekk--mobile.jpg", label: "on a phone", kind: "phone", note: "Where this is actually used." },
   ],
-  "fionie-docs": [
-    { file: "fionie-docs--dashboard.jpg", label: "the workbench", note: "All 165 documents from the master index, with my fourteen lit up and the rest dimmed and read only." },
+  fionie: [
+    { file: "fionie-docs--dashboard.jpg", label: "the workbench", note: "Where Fionie's founding documents get written: all 165 from the master index, my fourteen lit up and the rest read only." },
     { file: "fionie-docs--editor.jpg", label: "editor and assist rail", note: "Never a blank page: a starting structure on the left, the AI writing into a preview on the right that you insert or ignore." },
   ],
   "os-demo": [
@@ -114,15 +114,22 @@ const PANEL_COVERS: Record<string, string> = {
   "brain-spine": "panel--brain-spine.jpg",
   sentinel: "panel--sentinel.jpg",
   rates: "panel--rates.jpg",
-  fionie: "panel--fionie.jpg",
   maya: "panel--maya.jpg",
 };
 
 export function coverFor(slug: string): string | null {
+  // Composed cover: the real screens of that project inside a browser frame and a phone,
+  // on its own accent. Falls back to a raw screenshot if a composition is missing.
+  if (COMPOSED.has(slug)) return `cover--${slug}.jpg`;
   const shots = SHOTS[slug];
   if (shots && shots.length) return shots[0].file;
   return PANEL_COVERS[slug] ?? null;
 }
+
+const COMPOSED = new Set([
+  "dstrct-os", "ariel", "midas", "finance-brain", "brain-spine", "sentinel", "koekkoekk",
+  "dstrct-crm", "rates", "os-demo", "fionie", "creatief-met-plezier", "platinum", "maya",
+]);
 
 export function getShots(slug: string): Shot[] {
   return SHOTS[slug] ?? [];
@@ -566,46 +573,6 @@ const PREVIEWS: Record<string, { caption: ReactNode; node: ReactNode }> = {
       </Frame>
     ),
   },
-
-  "fionie-docs": {
-    caption: (
-      <>
-        The AI writes into a preview, never straight into your document. You insert it, replace with it, or ignore it.{" "}
-        <b>You keep the pen.</b>
-      </>
-    ),
-    node: (
-      <Frame label="fionie docs · assist rail">
-        <div className="pv-2">
-          <div className="pv-card">
-            <div className="pv-h">document · mine, editable</div>
-            <div className="pv-txt">
-              <b style={{ color: "var(--d-ink)" }}>Mission</b>
-              <br />
-              We build learning that a child enjoys and that understands the child, instead of ranking them.
-            </div>
-            <div className="pv-kv" style={{ marginTop: ".7rem" }}>
-              <span className="mono">autosave</span>
-              <b className="mono">saved · 2s ago</b>
-            </div>
-          </div>
-          <div className="pv-card">
-            <div className="pv-h">assist · improve</div>
-            <div className="pv-txt" style={{ opacity: 0.75 }}>
-              Consider naming who it is for in the first sentence, and moving the contrast with grading to the second
-              paragraph so the opening states what you are for…
-            </div>
-            <div className="pv-kv" style={{ marginTop: ".7rem" }}>
-              <span className="pv-tag">streaming</span>
-              <b className="mono">insert · replace</b>
-            </div>
-          </div>
-        </div>
-      </Frame>
-    ),
-  },
-
-
 
   maya: {
     caption: (

@@ -589,17 +589,18 @@ export const PROJECTS: Project[] = [
     monogram: "FO",
     tagline: "An AI learning companion that **grows up with a child**, from toddler to career.",
     status: "exploring",
-    statusNote: "spec approved, first version still to build",
+    statusNote: "spec approved, the writing workbench is built",
     family: "Exploration",
     accent: { cyan: "#F5C242", blue: "#4338CA" },
     stats: [
       { n: "23", l: "sources verified" },
       { n: "1", l: "learning profile for life" },
+      { n: "14", l: "founding documents" },
     ],
     idea: {
       title: "A companion you **do not lose**",
       lead:
-        "An AI companion that follows a person from about four years old into their career, carrying one continuous learning profile that travels with them. Not a tutor for a subject but continuity: it knows how you learn, across years.",
+        "An AI companion that follows a person from about four years old into their career, carrying one continuous learning profile that travels with them. Not a tutor for a subject but continuity: it knows how you learn, across years. Beside the product I built the workbench where its founding documents get written, because a company like this starts as a stack of decisions before it is a line of code.",
     },
     why: {
       title: "Education sorts children by **grades**",
@@ -615,6 +616,7 @@ export const PROJECTS: Project[] = [
         { label: "brain", value: "Claude as the conversational engine" },
         { label: "first subject", value: "maths, around ages eight to ten" },
         { label: "privacy", value: "no accounts, no database, no personal data in version 0.1" },
+        { label: "workbench", value: "Next.js 15 on Tailwind v4, autosave to JSON, streaming write-along AI" },
       ],
     },
     build: {
@@ -624,6 +626,7 @@ export const PROJECTS: Project[] = [
         { text: "Cut the emotion camera", sub: "the EU AI Act bans emotion recognition in education. Fionie understands through conversation, not by filming." },
         { text: "Picked the channel", sub: "schools move slowly with four publishers holding eighty percent of the books, so parent pays first" },
         { text: "Wrote the spec", sub: "the understanding buddy: one principle, one subject, one test child" },
+        { text: "Built the workbench", sub: "all 165 documents from the master index, my fourteen editable, the rest read only, with an AI that writes along into a preview instead of over your text" },
       ],
     },
     open: {
@@ -632,57 +635,7 @@ export const PROJECTS: Project[] = [
         { text: "The build plan", sub: "the spec is done, the planning phase is not" },
         { text: "Building version 0.1", sub: "the talking character plus the maths conversation" },
         { text: "Testing with a real child", sub: "everything before that is theory" },
-      ],
-    },
-  },
-
-  // ---------------------------------------------------------------- Fionie Docs
-  {
-    slug: "fionie-docs",
-    name: "Fionie Docs",
-    monogram: "FD",
-    tagline: "A workbench for fourteen of my own documents, with **AI that writes along**.",
-    status: "built",
-    statusNote: "verified locally, deliberately not online",
-    family: "Exploration",
-    accent: { cyan: "#E8B94A", blue: "#6D28D9" },
-    stats: [
-      { n: "165", l: "documents in the index" },
-      { n: "14", l: "mine" },
-      { n: "3", l: "kinds of editor" },
-    ],
-    idea: {
-      title: "A workbench instead of a **blank page**",
-      lead:
-        "The master index holds a hundred and sixty five documents, fourteen of them mine. This tool shows the whole index, highlights my fourteen and gives each document the right editor: Word like, Excel like or a note. Never a blank page, always a starting structure.",
-    },
-    why: {
-      title: "Writing along beats **generating**",
-      lead:
-        "An AI that produces the whole document hands you text that is not yours. This one writes along: draft, expand, improve, streaming into a preview you insert or replace only if you like it. You keep the pen.",
-    },
-    stack: {
-      title: "What it **runs on**",
-      items: [
-        { label: "app", value: "Next.js 15 with Tailwind v4, local on port 4321" },
-        { label: "storage", value: "no database, autosave to JSON outside git" },
-        { label: "ai", value: "streaming over OpenAI, provider flexible so Claude can drop in" },
-        { label: "look", value: "warm parchment, indigo ink, a gold accent, phase coloured tiles" },
-      ],
-    },
-    build: {
-      title: "How I **built it**",
-      steps: [
-        { text: "The index as the source", sub: "the platform per document decides which editor you get" },
-        { text: "Only my fourteen editable", sub: "the rest is dimmed and read only, gated in the API and not just in the interface" },
-        { text: "AI output sanitised", sub: "what the model returns is HTML, so it passes a filter before it touches the document" },
-      ],
-    },
-    open: {
-      title: "What is **still standing**",
-      items: [
-        { text: "Export and upload", sub: "the data model is ready for it, the button is not" },
-        { text: "Putting it online", sub: "deliberately not yet, everything stays local for now" },
+        { text: "Export and upload from the workbench", sub: "the data model is ready for it, the button is not" },
       ],
     },
   },
