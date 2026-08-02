@@ -11,11 +11,14 @@ const html = `<!doctype html><html><head><meta charset="utf-8"><style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{width:1400px;height:880px;overflow:hidden;background:#070a12}
 .stage{position:relative;width:1400px;height:880px;overflow:hidden}
+.art{position:absolute;inset:0;background-image:url(${b64("art-mesh.jpg")});background-size:cover;background-position:center;opacity:1}
+.tint{position:absolute;inset:0;mix-blend-mode:screen;opacity:.5;
+ background:radial-gradient(70% 70% at 10% 6%, #176999, transparent 62%),radial-gradient(65% 65% at 92% 94%, #34e0a1, transparent 60%)}
 .glow{position:absolute;border-radius:50%;filter:blur(130px)}
-.g1{width:1000px;height:1000px;background:#176999;opacity:.55;top:-360px;left:-180px}
-.g2{width:900px;height:900px;background:#34e0a1;opacity:.34;bottom:-420px;right:-160px}
-.g3{width:620px;height:620px;background:#8b5cf6;opacity:.28;top:120px;right:-120px}
-.grid{position:absolute;inset:0;opacity:.3;
+.g1{width:1000px;height:1000px;background:#176999;opacity:.2;top:-360px;left:-180px}
+.g2{width:900px;height:900px;background:#34e0a1;opacity:.14;bottom:-420px;right:-160px}
+.g3{width:620px;height:620px;background:#8b5cf6;opacity:.12;top:120px;right:-120px}
+.grid{position:absolute;inset:0;opacity:.14;
  background-image:linear-gradient(rgba(255,255,255,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.09) 1px,transparent 1px);
  background-size:60px 60px;-webkit-mask-image:radial-gradient(ellipse at 45% 45%,#000 25%,transparent 78%)}
 .scene{position:absolute;inset:0;perspective:2200px}
@@ -26,21 +29,21 @@ body{width:1400px;height:880px;overflow:hidden;background:#070a12}
 .win .bar i:first-child{background:#34e0a1;opacity:.85}
 .win img{display:block;width:100%;object-fit:cover;object-position:top center}
 
-.a{width:840px;left:-70px;top:170px;transform:rotateY(13deg) rotateX(4deg) rotateZ(-2deg);opacity:.42;z-index:1}
-.a img{height:440px}
-.b{width:1000px;left:180px;top:52px;transform:rotateY(11deg) rotateX(3deg) rotateZ(-1.6deg);z-index:3}
-.b img{height:520px}
-.c{width:800px;left:620px;top:452px;transform:rotateY(11deg) rotateX(3deg) rotateZ(-1.6deg);opacity:.62;z-index:2}
-.c img{height:400px}
-.phone{position:absolute;right:44px;top:126px;width:246px;border-radius:32px;padding:9px;z-index:4;
+.a{width:760px;left:-50px;top:210px;transform:rotateY(13deg) rotateX(4deg) rotateZ(-2deg);opacity:.42;z-index:1}
+.a img{height:400px}
+.b{width:880px;left:210px;top:96px;transform:rotateY(11deg) rotateX(3deg) rotateZ(-1.6deg);z-index:3}
+.b img{height:460px}
+.c{width:720px;left:600px;top:470px;transform:rotateY(11deg) rotateX(3deg) rotateZ(-1.6deg);opacity:.62;z-index:2}
+.c img{height:380px}
+.phone{position:absolute;right:62px;top:172px;width:228px;border-radius:32px;padding:9px;z-index:4;
  background:linear-gradient(160deg,rgba(255,255,255,.24),rgba(255,255,255,.05));
  box-shadow:0 60px 100px -35px rgba(0,0,0,.92);transform:rotateY(-12deg) rotateZ(3deg)}
 .phone .screen{border-radius:24px;overflow:hidden;background:#000;position:relative}
-.phone img{display:block;width:100%;height:462px;object-fit:cover;object-position:top center}
+.phone img{display:block;width:100%;height:428px;object-fit:cover;object-position:top center}
 .phone .notch{position:absolute;top:7px;left:50%;transform:translateX(-50%);width:72px;height:15px;border-radius:9px;background:#000;z-index:2}
 .vig{position:absolute;inset:0;background:radial-gradient(ellipse at 45% 40%,transparent 40%,rgba(4,6,12,.7) 100%)}
 </style></head><body><div class="stage">
-<div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div><div class="grid"></div>
+<div class="art"></div><div class="tint"></div><div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div><div class="grid"></div>
 <div class="scene">
   <div class="win a"><div class="bar"><i></i><i></i><i></i></div><img src="${b64("creatief-met-plezier--shop.jpg")}"></div>
   <div class="win c"><div class="bar"><i></i><i></i><i></i></div><img src="${b64("midas--deck-cover.jpg")}"></div>

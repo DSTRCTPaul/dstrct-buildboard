@@ -9,6 +9,14 @@ const OUT = process.env.OUT;
 
 const b64 = (f) => "data:image/jpeg;base64," + readFileSync(`${SHOTS}/${f}`).toString("base64");
 
+const ART = {
+  "dstrct-os": "art-prism.jpg", ariel: "art-prism.jpg", midas: "art-prism.jpg",
+  "finance-brain": "art-prism.jpg", "brain-spine": "art-prism.jpg",
+  sentinel: "art-mesh.jpg", koekkoekk: "art-liquid.jpg", "dstrct-crm": "art-mesh.jpg",
+  rates: "art-mesh.jpg", "os-demo": "art-prism.jpg", fionie: "art-beam.jpg",
+  "creatief-met-plezier": "art-liquid.jpg", platinum: "art-liquid.jpg", maya: "art-beam.jpg",
+};
+
 const JOBS = [
   { slug: "dstrct-os", a: "#34E0A1", b: "#176999", desktop: "engine--deck-cover.jpg", second: "engine--deck-chart.jpg" },
   { slug: "ariel", a: "#C084FC", b: "#EC4899", desktop: "ariel--deck-cover.jpg", second: "ariel--deck-dimensions.jpg" },
@@ -30,14 +38,18 @@ function html(j) {
   const desktop = b64(j.desktop);
   const phone = j.phone ? b64(j.phone) : null;
   const second = j.second ? b64(j.second) : null;
+  const art = b64(ART[j.slug] ?? "art-prism.jpg");
   return `<!doctype html><html><head><meta charset="utf-8"><style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{width:1200px;height:750px;overflow:hidden;background:#070a12;font-family:ui-sans-serif,system-ui,-apple-system,sans-serif}
 .stage{position:relative;width:1200px;height:750px;overflow:hidden}
+.art{position:absolute;inset:0;background-image:url(${art});background-size:cover;background-position:center;opacity:.95}
+.tint{position:absolute;inset:0;mix-blend-mode:screen;opacity:.55;
+ background:radial-gradient(70% 70% at 12% 8%, ${j.b}, transparent 62%),radial-gradient(60% 60% at 88% 92%, ${j.a}, transparent 60%)}
 .glow{position:absolute;border-radius:50%;filter:blur(120px)}
-.g1{width:900px;height:900px;background:${j.b};opacity:.5;top:-380px;left:-220px}
-.g2{width:820px;height:820px;background:${j.a};opacity:.36;bottom:-420px;right:-200px}
-.grid{position:absolute;inset:0;opacity:.28;
+.g1{width:900px;height:900px;background:${j.b};opacity:.22;top:-380px;left:-220px}
+.g2{width:820px;height:820px;background:${j.a};opacity:.16;bottom:-420px;right:-200px}
+.grid{position:absolute;inset:0;opacity:.16;
  background-image:linear-gradient(rgba(255,255,255,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.09) 1px,transparent 1px);
  background-size:56px 56px;
  -webkit-mask-image:radial-gradient(ellipse at 50% 45%,#000 25%,transparent 75%)}
@@ -70,7 +82,7 @@ body{width:1200px;height:750px;overflow:hidden;background:#070a12;font-family:ui
 
 .vig{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,transparent 45%,rgba(4,6,12,.72) 100%)}
 </style></head><body><div class="stage">
-<div class="glow g1"></div><div class="glow g2"></div><div class="grid"></div>
+<div class="art"></div><div class="tint"></div><div class="glow g1"></div><div class="glow g2"></div><div class="grid"></div>
 <div class="scene">
   ${second ? `<div class="win back"><div class="bar"><i></i><i></i><i></i></div><img src="${second}"></div>` : ""}
   <div class="win main${j.fit ? " fit" : ""}"><div class="bar"><i></i><i></i><i></i></div><img src="${desktop}"></div>
