@@ -651,7 +651,7 @@ export const PROJECTS: Project[] = [
     family: "Client work",
     accent: { cyan: "#FF8A65", blue: "#E85A4F" },
     stats: [
-      { n: "11.400", l: "products migrated" },
+      { n: "11,400", l: "products migrated" },
       { n: "642", l: "records cleaned" },
       { n: "6", l: "cafe packages live" },
     ],

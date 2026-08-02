@@ -2,13 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 
-// A stat like "11.400" counts up; a stat like "~28" or "0.85" that is not cleanly numeric is shown
-// as written. Never reformat a value into something the source did not say.
+// A stat like "11,400" counts up and "0.85" keeps its decimals; something like "~28" or "1-10"
+// is shown exactly as written. Never reformat a value into something the source did not say.
 export function parseStat(raw: string): { value: number; prefix: string; suffix: string; dec: number } | null {
   const m = raw.match(/^([^\d-]*)(-?\d[\d.]*(?:,\d+)?)(.*)$/);
   if (!m) return null;
   const [, prefix, digits, suffix] = m;
-  const normalised = digits.replace(/\./g, "").replace(",", ".");
+  const normalised = digits.replace(/,/g, ""); // commas group thousands, the dot stays decimal
   const value = Number(normalised);
   if (!isFinite(value)) return null;
   const dec = normalised.includes(".") ? normalised.split(".")[1].length : 0;
@@ -43,7 +43,7 @@ export function CountUp({ raw }: { raw: string }) {
             const v = parsed.value * eased;
             setText(
               parsed.prefix +
-                v.toLocaleString("nl-NL", { minimumFractionDigits: parsed.dec, maximumFractionDigits: parsed.dec }) +
+                v.toLocaleString("en-GB", { minimumFractionDigits: parsed.dec, maximumFractionDigits: parsed.dec }) +
                 parsed.suffix
             );
             if (p < 1) frame = requestAnimationFrame(tick);

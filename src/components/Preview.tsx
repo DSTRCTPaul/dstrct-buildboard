@@ -70,7 +70,7 @@ export const SHOTS: Record<string, Shot[]> = {
     { file: "midas--deck-competitors.jpg", label: "who takes the clicks", note: "The two competitors and you, with the opening under each. The red line is where you stand." },
   ],
   "dstrct-crm": [
-    { file: "dstrct-crm--cockpit.jpg", label: "seller cockpit", kind: "desktop", note: "Where a seller lands. Describe a client in plain language, or add one by voice, and the AI proposes the quote." },
+    { file: "dstrct-crm--cockpit.jpg", label: "seller cockpit", kind: "desktop", note: "Where a seller lands. Describe a client in plain language, or add one by voice, and the AI proposes the quote. The screens are Dutch because the team using it is." },
     { file: "dstrct-crm--prices.jpg", label: "prices and commission", note: "The seller view: sale price and their own commission per service. No cost price anywhere, because the server strips it." },
     { file: "dstrct-crm--quotes.jpg", label: "quotes", note: "The quote pipeline, from new through called, interested, quoted, agreed." },
     { file: "dstrct-crm--salesaid.jpg", label: "sales aid", note: "The answers to the objections a seller actually gets, in the tool instead of in a document nobody opens." },
@@ -94,14 +94,14 @@ export const SHOTS: Record<string, Shot[]> = {
     { file: "os-demo--mobile.jpg", label: "on a phone", kind: "phone", note: "Light and dark, and it holds up at 390 pixels wide." },
   ],
   platinum: [
-    { file: "platinum--home.jpg", label: "home", note: "Dark with electric violet and heavy italic poster headlines. Bilingual from the route up." },
+    { file: "platinum--home.jpg", label: "home", note: "Dark with electric violet and heavy italic poster headlines. Bilingual from the route up, so this is the English side of the same site." },
     { file: "platinum--roster.jpg", label: "creator roster", note: "Ten creator profiles with follower counts and a booking form behind each." },
     { file: "platinum--creators.jpg", label: "for creators", note: "The recruitment side, with TikTok attributes on the signup." },
     { file: "platinum--cases.jpg", label: "cases", note: "The proof pages, structured data included so they are crawlable." },
     { file: "platinum--mobile.jpg", label: "on a phone", kind: "phone", note: "Where an agency's audience actually looks." },
   ],
   "creatief-met-plezier": [
-    { file: "creatief-met-plezier--home.jpg", label: "storefront", note: "The live shop. Warm palette, workshops and packages beside the catalogue." },
+    { file: "creatief-met-plezier--home.jpg", label: "storefront", note: "The live shop, in Dutch because it sells to the Netherlands. Warm palette, workshops and packages beside the catalogue." },
     { file: "creatief-met-plezier--shop.jpg", label: "10.934 products", note: "The full catalogue with brand and technique filters that finally tell the truth about what is in them." },
     { file: "creatief-met-plezier--workshops.jpg", label: "workshops", note: "Sessions and seats, managed by the owner herself from the back office." },
     { file: "creatief-met-plezier--mobile.jpg", label: "on a phone", kind: "phone", note: "Most of this shop's traffic." },

@@ -14,7 +14,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const p = getProject(slug);
-  if (!p) return { title: "Niet gevonden · DSTRCT Build Board" };
+  if (!p) return { title: "Not found · DSTRCT Build Board" };
   return { title: `${p.name} · DSTRCT Build Board`, description: p.tagline };
 }
 
