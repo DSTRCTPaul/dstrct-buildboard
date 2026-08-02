@@ -178,8 +178,41 @@ a {
 /* ---------------------------------------------------------------- hero */
 
 .hero {
-  padding: clamp(3rem, 9vw, 6.5rem) 0 clamp(2rem, 5vw, 3.5rem);
+  padding: clamp(2.5rem, 7vw, 5rem) 0 clamp(2rem, 5vw, 3.5rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+.herotext {
   max-width: 46ch;
+}
+.heroshot {
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  box-shadow: 0 40px 90px -50px rgba(0, 0, 0, 0.9);
+  line-height: 0;
+}
+.heroshot img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  .heroshot {
+    order: -1;
+  }
+}
+.hero .ask {
+  margin-top: 1rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--accent-2);
+  color: var(--ink);
+  font-size: clamp(0.98rem, 1.5vw, 1.1rem);
 }
 
 .eyebrow {

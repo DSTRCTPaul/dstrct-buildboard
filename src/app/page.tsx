@@ -40,29 +40,39 @@ export default async function Home() {
         </header>
 
         <section className="hero">
-          <div className="eyebrow">what I am building</div>
-          <h1>
-            One <span className="grad">block</span> per project. Click it and you get the whole story.
-          </h1>
-          <p>
-            This is what I built across these sessions: own products, brains, client work and explorations. Per project
-            the idea, why it exists, the stack, how I built it and what is still standing. At the end of every
-            presentation you can leave a reply.
-          </p>
+          <div className="herotext">
+            <div className="eyebrow">DSTRCT · built in public</div>
+            <h1>
+              Everything I build, <span className="grad">in the open</span>.
+            </h1>
+            <p>
+              Fourteen products: the real screens, the stack underneath, and the parts that are still missing. Nothing
+              is polished away.
+            </p>
+            <p className="ask">
+              Read one. If you would want to help, or you would have built it differently, say so at the end of it.
+              That is worth more to me than a compliment.
+            </p>
 
-          <div className="herostats">
-            <div>
-              <div className="n">{PROJECTS.length}</div>
-              <div className="l">projects</div>
+            <div className="herostats">
+              <div>
+                <div className="n">{PROJECTS.length}</div>
+                <div className="l">projects</div>
+              </div>
+              <div>
+                <div className="n">{live}</div>
+                <div className="l">live</div>
+              </div>
+              <div>
+                <div className="n">{building}</div>
+                <div className="l">built or building</div>
+              </div>
             </div>
-            <div>
-              <div className="n">{live}</div>
-              <div className="l">live</div>
-            </div>
-            <div>
-              <div className="n">{building}</div>
-              <div className="l">built or building</div>
-            </div>
+          </div>
+
+          <div className="heroshot">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/shots/hero.jpg" alt="Screens from several of the products, running" width={2800} height={1760} />
           </div>
         </section>
 

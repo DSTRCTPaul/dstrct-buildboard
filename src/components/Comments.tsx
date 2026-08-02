@@ -70,14 +70,14 @@ export function Comments({ slug, initial }: { slug: string; initial: PublicComme
           />
         </label>
         <label>
-          <span>your reply</span>
+          <span>what would you change, or where could you help</span>
           <textarea
             value={body}
             onChange={(e) => setBody(e.target.value)}
             maxLength={MAX_BODY}
             required
             rows={5}
-            placeholder="what do you think of this"
+            placeholder="be specific: which part, and what you would do instead"
           />
         </label>
         <label className="hp" aria-hidden="true">
@@ -93,9 +93,9 @@ export function Comments({ slug, initial }: { slug: string; initial: PublicComme
       <div>
         {list.length === 0 ? (
           <div className="cempty">
-            no replies yet
+            nobody has said anything yet
             <br />
-            be the first
+            be the first to tell me what to change
           </div>
         ) : (
           <div className="clist">

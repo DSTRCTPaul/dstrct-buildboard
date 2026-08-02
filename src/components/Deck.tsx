@@ -280,10 +280,12 @@ export function Deck({
       <section className="slide tall">
         <div className="eyebrow">{num()} · your feedback</div>
         <h2 className="reveal">
-          What do you make of <span className="g">{p.name}</span>?
+          What would you <span className="g">change</span>?
         </h2>
         <p className="lead reveal d1">
-          Just say it. Criticism is more useful than a compliment: what is missing, what would you do differently, what does not make sense?
+          You just read what {p.name} is, how it was built and what is still missing. If you would build it
+          differently, if something here is wrong or thin, or if you would want to help on it, write it below. Say
+          which part and I will come back to you.
         </p>
 
         <Comments slug={p.slug} initial={comments} />
