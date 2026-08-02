@@ -45,9 +45,9 @@ body{width:1400px;height:880px;overflow:hidden;background:#070a12}
 </style></head><body><div class="stage">
 <div class="art"></div><div class="tint"></div><div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div><div class="grid"></div>
 <div class="scene">
-  <div class="win a"><div class="bar"><i></i><i></i><i></i></div><img src="${b64("creatief-met-plezier--shop.jpg")}"></div>
-  <div class="win c"><div class="bar"><i></i><i></i><i></i></div><img src="${b64("midas--deck-cover.jpg")}"></div>
-  <div class="win b"><div class="bar"><i></i><i></i><i></i></div><img src="${b64("os-demo--dashboard.jpg")}"></div>
+  <div class="win a"><div class="bar"><i></i><i></i><i></i></div><img src="${b64("ariel--deck-dimensions.jpg")}"></div>
+  <div class="win c"><div class="bar"><i></i><i></i><i></i></div><img src="${b64("midas--deck-competitors.jpg")}"></div>
+  <div class="win b"><div class="bar"><i></i><i></i><i></i></div><img src="${b64("engine--deck-cover.jpg")}"></div>
   <div class="phone"><div class="screen"><div class="notch"></div><img src="${b64("platinum--mobile.jpg")}"></div></div>
 </div>
 <div class="vig"></div>
