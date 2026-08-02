@@ -82,8 +82,9 @@ export const SHOTS: Record<string, Shot[]> = {
     { file: "koekkoekk--mobile.jpg", label: "on a phone", kind: "phone", note: "Where this is actually used." },
   ],
   fionie: [
-    { file: "fionie-docs--dashboard.jpg", label: "the workbench", note: "Where Fionie's founding documents get written: all 165 from the master index, my fourteen lit up and the rest read only." },
-    { file: "fionie-docs--editor.jpg", label: "editor and assist rail", note: "Never a blank page: a starting structure on the left, the AI writing into a preview on the right that you insert or ignore." },
+    { file: "panel--fionie.jpg", label: "the companion", note: "This is Fionie itself: the child answers wrong, gets no verdict, and is asked how they got there. Designed and written down, not built yet, and the two screens beside this are the workbench where its founding documents are written." },
+    { file: "fionie-docs--dashboard.jpg", label: "the workbench", note: "Behind the product: all 165 documents from the master index, my fourteen lit up and the rest read only. This one exists and runs today." },
+    { file: "fionie-docs--editor.jpg", label: "writing along", note: "Never a blank page: a starting structure on the left, the AI writing into a preview on the right that you insert or ignore." },
   ],
   "os-demo": [
     { file: "os-demo--dashboard.jpg", label: "the dashboard", note: "Real handmade interface, not a picture of one. Revenue, cashflow, the action list and what each brain did." },
@@ -539,40 +540,6 @@ const PREVIEWS: Record<string, { caption: ReactNode; node: ReactNode }> = {
     ),
   },
 
-
-  fionie: {
-    caption: (
-      <>
-        The child is not marked right or wrong. Fionie asks how they got there, because{" "}
-        <b>the reasoning is the thing worth rewarding.</b>
-      </>
-    ),
-    node: (
-      <Frame label="fionie · understanding first">
-        <div className="pv-chat">
-          <Msg who="Fionie" at="" avatar="FO" bot>
-            Seven times eight. Take your time, I am not counting seconds.
-          </Msg>
-          <Msg who="Child" at="" avatar="K">
-            54
-          </Msg>
-          <Msg who="Fionie" at="" avatar="FO" bot>
-            Close. How did you get there? If you tell me your route I can see where it slipped.
-          </Msg>
-          <Msg who="Child" at="" avatar="K">
-            i did 7 times 7 and then plus 7 but i think i counted wrong
-          </Msg>
-          <Msg who="Fionie" at="" avatar="FO" bot>
-            That route is exactly right, so you understand this. Only the last step went off. 49 plus 7 is?
-          </Msg>
-        </div>
-        <div className="pv-card" style={{ marginTop: ".9rem" }}>
-          <div className="pv-h">parent summary · no grade</div>
-          <div className="pv-txt">Strategy is solid, the errors sit in the final step when going fast.</div>
-        </div>
-      </Frame>
-    ),
-  },
 
   maya: {
     caption: (

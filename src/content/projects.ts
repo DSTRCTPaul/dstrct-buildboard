@@ -600,7 +600,7 @@ export const PROJECTS: Project[] = [
     idea: {
       title: "A companion you **do not lose**",
       lead:
-        "An AI companion that follows a person from about four years old into their career, carrying one continuous learning profile that travels with them. Not a tutor for a subject but continuity: it knows how you learn, across years. Beside the product I built the workbench where its founding documents get written, because a company like this starts as a stack of decisions before it is a line of code.",
+        "An AI companion that follows a person from about four years old into their career, carrying one continuous learning profile that travels with them. Not a tutor for a subject but continuity: it knows how you learn, across years. It asks how you got to an answer instead of marking it wrong, because the reasoning is the part worth rewarding.",
     },
     why: {
       title: "Education sorts children by **grades**",
