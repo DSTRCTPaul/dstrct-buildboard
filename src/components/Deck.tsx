@@ -5,7 +5,8 @@ import { useEffect, useRef, useState } from "react";
 import { CountUp } from "@/components/CountUp";
 import { Rich } from "@/components/Rich";
 import { Comments, type PublicComment } from "@/components/Comments";
-import { Preview, hasPreview } from "@/components/Preview";
+import { Preview, hasPreview, getShots } from "@/components/Preview";
+import { Gallery } from "@/components/Gallery";
 import { STATUS_LABEL, type Project } from "@/content/projects";
 
 export function Deck({
@@ -55,6 +56,7 @@ export function Deck({
   // Arrow keys move through the deck, unless the visitor is typing a reaction.
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
+      if (document.body.dataset.lightbox === "1") return;
       const el = e.target as HTMLElement | null;
       if (el && (el.tagName === "INPUT" || el.tagName === "TEXTAREA")) return;
       if (e.key === "ArrowRight" || e.key === "ArrowDown" || e.key === " ") {
@@ -70,6 +72,12 @@ export function Deck({
   }, [index]);
 
   const pad = (n: number) => String(n).padStart(2, "0");
+
+  // Not every project has screenshots or a crafted panel, so the section numbers are counted
+  // as the deck is written rather than hard coded.
+  const shots = getShots(p.slug);
+  let sec = 0;
+  const num = () => pad(++sec);
 
   return (
     <div
@@ -133,7 +141,7 @@ export function Deck({
 
       {/* 03 het idee */}
       <section className="slide">
-        <div className="eyebrow">01 · the idea</div>
+        <div className="eyebrow">{num()} · the idea</div>
         <h2 className="reveal">
           <Rich text={p.idea.title} as="grad" />
         </h2>
@@ -144,7 +152,7 @@ export function Deck({
 
       {/* 04 waarom */}
       <section className="slide">
-        <div className="eyebrow blue">02 · why</div>
+        <div className="eyebrow blue">{num()} · why</div>
         <h2 className="reveal">
           <Rich text={p.why.title} as="grad" />
         </h2>
@@ -165,12 +173,25 @@ export function Deck({
         </section>
       )}
 
-      {/* 06 in action */}
+      {/* in action: the real thing, screenshot by screenshot */}
+      {shots.length > 0 && (
+        <section className="slide tall">
+          <div className="eyebrow">{num()} · in action</div>
+          <h2 className="reveal">
+            See it <span className="g">running</span>
+          </h2>
+          <div className="reveal d1">
+            <Gallery shots={shots} />
+          </div>
+        </section>
+      )}
+
+      {/* how it works: the flow, drawn rather than photographed */}
       {hasPreview(p.slug) && (
         <section className="slide tall">
-          <div className="eyebrow">03 · in action</div>
+          <div className="eyebrow">{num()} · how it works</div>
           <h2 className="reveal">
-            See it <span className="g">work</span>
+            The <span className="g">flow</span> underneath
           </h2>
           <Preview slug={p.slug} />
         </section>
@@ -178,7 +199,7 @@ export function Deck({
 
       {/* 07 de stack */}
       <section className="slide tall">
-        <div className="eyebrow">04 · the stack</div>
+        <div className="eyebrow">{num()} · the stack</div>
         <h2 className="reveal">
           <Rich text={p.stack.title} as="grad" />
         </h2>
@@ -199,7 +220,7 @@ export function Deck({
 
       {/* 07 hoe ik het bouwde */}
       <section className="slide tall">
-        <div className="eyebrow">05 · how I built it</div>
+        <div className="eyebrow">{num()} · how I built it</div>
         <h2 className="reveal">
           <Rich text={p.build.title} as="grad" />
         </h2>
@@ -228,7 +249,7 @@ export function Deck({
 
       {/* 08 wat er nog staat */}
       <section className="slide tall">
-        <div className="eyebrow blue">06 · what is still standing</div>
+        <div className="eyebrow blue">{num()} · what is still standing</div>
         <h2 className="reveal">
           <Rich text={p.open.title} as="grad" />
         </h2>
@@ -257,7 +278,7 @@ export function Deck({
 
       {/* 09 feedback */}
       <section className="slide tall">
-        <div className="eyebrow">07 · your feedback</div>
+        <div className="eyebrow">{num()} · your feedback</div>
         <h2 className="reveal">
           What do you make of <span className="g">{p.name}</span>?
         </h2>

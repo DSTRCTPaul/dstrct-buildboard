@@ -4,6 +4,7 @@
 // image and nothing is generated: same rule as the OS demo site, real interface or nothing.
 
 import type { ReactNode } from "react";
+import type { Shot } from "@/components/Gallery";
 
 function Frame({ label, children }: { label: string; children: ReactNode }) {
   return (
@@ -15,21 +16,6 @@ function Frame({ label, children }: { label: string; children: ReactNode }) {
         <span>{label}</span>
       </div>
       <div className="pv-body">{children}</div>
-    </div>
-  );
-}
-
-function Shot({ slug, label, alt }: { slug: string; label: string; alt: string }) {
-  return (
-    <div className="pv">
-      <div className="pv-bar">
-        <i />
-        <i />
-        <i />
-        <span>{label}</span>
-      </div>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img className="pv-shot" src={`/shots/${slug}.jpg`} alt={alt} loading="lazy" width={1920} height={1200} />
     </div>
   );
 }
@@ -60,6 +46,87 @@ function Wave({ bars }: { bars: number[] }) {
 }
 
 const WAVE = [18, 42, 70, 95, 62, 30, 55, 88, 100, 74, 40, 22, 48, 80, 66, 34, 20, 52, 76, 44, 26, 60, 90, 58, 30, 16];
+
+// ------------------------------------------------------------------- galleries
+// Real screenshots of the running product. The site ones are captured from the live URL,
+// the deck ones are rendered by the actual pitch engine from that repo, the local tools
+// are captured from the app running on this machine. Example figures, real interface.
+
+export const SHOTS: Record<string, Shot[]> = {
+  "dstrct-os": [
+    { file: "engine--deck-cover.jpg", label: "daily briefing · cover", note: "The OS does not answer with a wall of text. This is the deck engine in the repo, rendering the morning briefing." },
+    { file: "engine--deck-chart.jpg", label: "revenue against cost", note: "Charts draw themselves as the slide arrives. The line is the data, the caption is the point." },
+    { file: "engine--deck-bars.jpg", label: "what each brain did", note: "Every brain reports what it actually did that week, which makes the fleet legible in one screen." },
+    { file: "engine--deck-stats.jpg", label: "the month in four numbers", note: "Numbers count up on arrival. Same engine, four different slide types." },
+  ],
+  ariel: [
+    { file: "ariel--deck-cover.jpg", label: "creative read · cover", note: "Ariel's own deck, violet and pink. Same engine as the other brains, its own accent." },
+    { file: "ariel--deck-dimensions.jpg", label: "where it holds and slips", note: "Four creative dimensions scored. The amber bar is the one that keeps slipping, called out in the caption." },
+    { file: "ariel--deck-stats.jpg", label: "the shape of the work", note: "Retention, hook, audio and how many posts sit behind the profile, so you can judge the confidence yourself." },
+  ],
+  midas: [
+    { file: "midas--deck-cover.jpg", label: "growth research · cover", note: "What a client receives after one line of request in Discord." },
+    { file: "midas--deck-gap.jpg", label: "the gap", note: "One number, full screen. The whole point of the deck lands before any explanation." },
+    { file: "midas--deck-competitors.jpg", label: "who takes the clicks", note: "The two competitors and you, with the opening under each. The red line is where you stand." },
+  ],
+  "dstrct-crm": [
+    { file: "dstrct-crm--cockpit.jpg", label: "seller cockpit", kind: "desktop", note: "Where a seller lands. Describe a client in plain language, or add one by voice, and the AI proposes the quote." },
+    { file: "dstrct-crm--prices.jpg", label: "prices and commission", note: "The seller view: sale price and their own commission per service. No cost price anywhere, because the server strips it." },
+    { file: "dstrct-crm--quotes.jpg", label: "quotes", note: "The quote pipeline, from new through called, interested, quoted, agreed." },
+    { file: "dstrct-crm--salesaid.jpg", label: "sales aid", note: "The answers to the objections a seller actually gets, in the tool instead of in a document nobody opens." },
+    { file: "dstrct-crm--mobile.jpg", label: "on a phone", kind: "phone", note: "Sellers work from their phone between appointments, so the cockpit had to survive a small screen." },
+  ],
+  koekkoekk: [
+    { file: "koekkoekk--home.jpg", label: "marketplace", note: "The launch surface. Marketplace first, everything else behind a flag until this one works." },
+    { file: "koekkoekk--shop.jpg", label: "the shop", note: "Items from verified sellers, priced in whole cents, media always behind signed URLs." },
+    { file: "koekkoekk--mobile.jpg", label: "on a phone", kind: "phone", note: "Where this is actually used." },
+  ],
+  "fionie-docs": [
+    { file: "fionie-docs--dashboard.jpg", label: "the workbench", note: "All 165 documents from the master index, with my fourteen lit up and the rest dimmed and read only." },
+    { file: "fionie-docs--editor.jpg", label: "editor and assist rail", note: "Never a blank page: a starting structure on the left, the AI writing into a preview on the right that you insert or ignore." },
+  ],
+  "os-demo": [
+    { file: "os-demo--dashboard.jpg", label: "the dashboard", note: "Real handmade interface, not a picture of one. Revenue, cashflow, the action list and what each brain did." },
+    { file: "os-demo--brains.jpg", label: "the brains", note: "One OS, four specialists, each strong in its own subject." },
+    { file: "os-demo--strategy.jpg", label: "strategy · the moat", note: "Why this wins is argued on the page: evidence graph, action first, founder context, governance, compounding." },
+    { file: "os-demo--pitch.jpg", label: "investor pitch", note: "Problem through ask, on the same shareable link." },
+    { file: "os-demo--mobile.jpg", label: "on a phone", kind: "phone", note: "Light and dark, and it holds up at 390 pixels wide." },
+  ],
+  platinum: [
+    { file: "platinum--home.jpg", label: "home", note: "Dark with electric violet and heavy italic poster headlines. Bilingual from the route up." },
+    { file: "platinum--roster.jpg", label: "creator roster", note: "Ten creator profiles with follower counts and a booking form behind each." },
+    { file: "platinum--creators.jpg", label: "for creators", note: "The recruitment side, with TikTok attributes on the signup." },
+    { file: "platinum--cases.jpg", label: "cases", note: "The proof pages, structured data included so they are crawlable." },
+    { file: "platinum--mobile.jpg", label: "on a phone", kind: "phone", note: "Where an agency's audience actually looks." },
+  ],
+  "creatief-met-plezier": [
+    { file: "creatief-met-plezier--home.jpg", label: "storefront", note: "The live shop. Warm palette, workshops and packages beside the catalogue." },
+    { file: "creatief-met-plezier--shop.jpg", label: "10.934 products", note: "The full catalogue with brand and technique filters that finally tell the truth about what is in them." },
+    { file: "creatief-met-plezier--workshops.jpg", label: "workshops", note: "Sessions and seats, managed by the owner herself from the back office." },
+    { file: "creatief-met-plezier--mobile.jpg", label: "on a phone", kind: "phone", note: "Most of this shop's traffic." },
+  ],
+};
+
+// The image that fronts a project on the board: the first real screenshot when there is one,
+// otherwise the crafted panel from its own deck, captured as an image.
+const PANEL_COVERS: Record<string, string> = {
+  "finance-brain": "panel--finance-brain.jpg",
+  "brain-spine": "panel--brain-spine.jpg",
+  sentinel: "panel--sentinel.jpg",
+  rates: "panel--rates.jpg",
+  fionie: "panel--fionie.jpg",
+  maya: "panel--maya.jpg",
+};
+
+export function coverFor(slug: string): string | null {
+  const shots = SHOTS[slug];
+  if (shots && shots.length) return shots[0].file;
+  return PANEL_COVERS[slug] ?? null;
+}
+
+export function getShots(slug: string): Shot[] {
+  return SHOTS[slug] ?? [];
+}
 
 // ---------------------------------------------------------------------------- per project
 
@@ -465,15 +532,6 @@ const PREVIEWS: Record<string, { caption: ReactNode; node: ReactNode }> = {
     ),
   },
 
-  "os-demo": {
-    caption: (
-      <>
-        Real interface rather than pictures of interface. The dashboard, the brains, the strategy and the pitch all
-        live on one shareable link, in light and dark. <b>This is the actual page, not a mockup of it.</b>
-      </>
-    ),
-    node: <Shot slug="os-demo" label="dstrct-os-demo.vercel.app" alt="The DSTRCT OS demo dashboard with revenue, cashflow and brain actions" />,
-  },
 
   fionie: {
     caption: (
@@ -547,25 +605,7 @@ const PREVIEWS: Record<string, { caption: ReactNode; node: ReactNode }> = {
     ),
   },
 
-  "creatief-met-plezier": {
-    caption: (
-      <>
-        Eleven thousand products, workshops and packages, all managed from a back office the owner runs herself.{" "}
-        <b>This is the live storefront.</b>
-      </>
-    ),
-    node: <Shot slug="creatief-met-plezier" label="the live storefront" alt="The Creatief met Plezier storefront homepage" />,
-  },
 
-  platinum: {
-    caption: (
-      <>
-        Sixty four pages across two languages, and behind it a platform with roles, applications and a shop.{" "}
-        <b>This is the live site.</b>
-      </>
-    ),
-    node: <Shot slug="platinum" label="platinum-management-agency.vercel.app" alt="The Platinum agency homepage" />,
-  },
 
   maya: {
     caption: (

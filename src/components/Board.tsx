@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Rich } from "@/components/Rich";
+import { coverFor } from "@/components/Preview";
 import { PROJECTS, STATUS_LABEL, type Project } from "@/content/projects";
 
 const FILTERS = ["everything", "The OS", "Brains", "Own products", "Client work", "Exploration"];
@@ -31,12 +32,20 @@ export function Board({ counts }: { counts: Record<string, number> }) {
 }
 
 function Card({ project: p, count }: { project: Project; count: number }) {
+  const cover = coverFor(p.slug);
   return (
     <Link
       href={`/p/${p.slug}`}
       className="card"
       style={{ ["--pa" as string]: p.accent.cyan, ["--pb" as string]: p.accent.blue }}
     >
+      {cover && (
+        <div className={`cardshot${cover.startsWith("panel--") ? " panel" : ""}`}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={`/shots/${cover}`} alt="" loading="lazy" width={640} height={360} />
+        </div>
+      )}
+
       <div className="cardtop">
         <div className="mono-chip">{p.monogram}</div>
         <div>
